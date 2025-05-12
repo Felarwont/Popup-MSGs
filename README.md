@@ -7,7 +7,7 @@
 </div>
 
 # 📌 Установка:
-1. Скачайте плагин [popup_msgs.py](https://github.com/Felarwont/Popup-MSGs/releases/download/v0.1.0/popup_msgs.py)
+1. Скачайте плагин [popup_msgs.py](https://github.com/Felarwont/Popup-MSGs/releases/download/v1.0.0/popup_msgs.py)
 2. Поместите в папку модов:
    - **Windows:** `%AppData%/Local/BombSquad/mods`
    - **Android:** `Android/data/net.froemling.bombsquad/files/mods`
