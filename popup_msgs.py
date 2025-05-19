@@ -9,9 +9,10 @@ from bastd.game.deathmatch import DeathMatchGame
 old__init__ = PartyWindow.on_chat_message
 def chat_handler(self, msg: str) -> None:
         old__init__(self, msg)
-        player_name = msg.split(': ')[0]
-        last_msg = msg.split(': ')[-1]
-        PopupMsg().show_popup(player_name, last_msg)
+        if _ba.get_foreground_host_activity():
+            player_name = msg.split(': ')[0]
+            last_msg = msg.split(': ')[-1]
+            PopupMsg().show_popup(player_name, last_msg)
 PartyWindow.on_chat_message = chat_handler
 
 class PopupMsg:
@@ -22,7 +23,7 @@ class PopupMsg:
         activity = _ba.get_foreground_host_activity()
         for player in activity.players:
             if player.getname(False, False) == name:
-                position = tuple(player.position)
+                position = player.position
                 return position
         return None
 
@@ -31,10 +32,10 @@ class PopupMsg:
         position = self.get_pos(player_name)
         if position:
             with ba.Context(activity):
-                popuptext.PopupText(
+                self.popup = popuptext.PopupText(
                     text=text,
                     position=position,
-                    color=(1.0, 1.0, 1.0, 1.0),
+                    color=(1.0, 1.0, 1.0),
                     scale=1.5
                 ).autoretain()
 
