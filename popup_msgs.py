@@ -2,7 +2,6 @@
 import ba, _ba
 from bastd.ui.party import PartyWindow
 from bastd.actor import popuptext
-from bastd.game.deathmatch import DeathMatchGame
 
 #   Примечание: у хоста должен быть открыт чат 
 
